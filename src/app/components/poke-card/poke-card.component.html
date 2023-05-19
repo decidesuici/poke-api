@@ -1,0 +1,26 @@
+<mat-card class="card-style py-4">
+    <mat-card-header class="flex justify-center items-center">
+        <mat-card-title class="text-center">
+            # {{ pokemon.id }}
+        </mat-card-title>
+        <mat-card-title [ngClass]="{ 'capitalize' : true}" class="text-center">
+            {{ capitalizeFirstLetter(pokemon.name) }}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="!shiny">
+        <img class=" w-32 mx-auto" mat-card-image [src]="this.pokemon.sprites.other.home.front_default">
+    </mat-card-content>
+    <mat-card-content *ngIf="shiny">
+        <img class=" w-32 mx-auto" mat-card-image [src]="this.pokemon.sprites.other.home.front_shiny">
+    </mat-card-content>
+    <mat-card-actions class="flex, justify-center items-center">
+        <button mat-fab extended color="primary" (click)="seeShiny()" *ngIf="!shiny">
+            <mat-icon>star_rate_half</mat-icon>
+            Watch Shiny
+        </button>
+        <button mat-fab extended color="accent" (click)="seeShiny()" *ngIf="shiny">
+            <mat-icon>favorite</mat-icon>
+            Watch Default
+        </button>
+    </mat-card-actions>
+</mat-card>

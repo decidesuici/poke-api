@@ -1,0 +1,4 @@
+<div class="mx-auto w-3/4 mt-28">
+    <app-poke-card *ngFor="let pokemon of displayPokemons" [pokemon]="pokemon"></app-poke-card>
+    <mat-paginator [length]="pokemons.length" [pageSize]="9" (page)="onPageChange($event)" showFirstLastButtons></mat-paginator>
+</div>
